@@ -4,32 +4,66 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import java.lang.Number;
+import java.util.Scanner;
 
 /**
- * 
+ *
  * CSCU9T4 Java strings and files exercise.
  *
  */
 public class FilesInOut {
-    
 
-    public static void main(String[] args) {
-        // Replace this with statements to set the file name (input) and file name (output).
-        // Initially it will be easier to hardcode suitable file names.
+    public static void main(String[] args) throws FileNotFoundException {
+        System.out.println("supply filename for input:");
+        Scanner in = new Scanner(System.in); // Creating scanner object called "in"
+        boolean inputSuccess = false;
+        String inputPath = "";
 
-        // Set up a new Scanner to read the input file.
-        // Processing line by line would be sensible here.
-        // Initially, echo the text to System.out to check you are reading correctly.
-        // Then add code to modify the text to the output format.
+        // Testing  the input file exists
+        while (inputSuccess == false){ // While  boolean value = false
+             inputPath = in.nextLine();  // Read the next line
+             File inputFile = new File(inputPath);
+            try {
+                Scanner inFile = new Scanner(inputFile);
+                inputSuccess = true; // If successful set boolean value to true
+            }catch(IOException e){ // To catch exception
+                System.err.println("IOException: " + e.getMessage()
+                        + "not found" + ".Try adding a new filepath");
+            }
+        }
 
-        // Set up a new PrintWriter to write the output file.
-        // Add suitable code into the above processing (because you need to do this line by line also.
-        // That is, read a line, write a line, loop.
+        File inputFile =new File(inputPath);
+        Scanner inFile = new Scanner(inputFile);
+        inFile.useDelimiter("\n"); // Using a line as a delimiter
+        inFile.tokens(); // Separating the lines
 
-        // Finally, add code to read the filenames as arguments from the command line.
+        System.out.println("supply filename for output:");
+        Scanner out = new Scanner(System.in); // Creating a scanner object called "out"
+        boolean outputSuccess = false;
+        String outputPath = "";
 
-        System.out.println("You need to add your own code to do anything");
+                   System.out.println("File operation succesfull");
 
+
+            
     } // main
+    
+    public String string_To_Date(String date) {
+		StringBuffer dateBuffer = new StringBuffer(date);
+		dateBuffer.insert(2, '/');
+		dateBuffer.insert(5, '/');
+		String result = dateBuffer.toString();
+		return result;
+	}
+    
+    public static String formatString(String inputString, boolean allCaps){
+        if (allCaps){
+            return inputString.toUpperCase();
+        }
+        else{
+            return inputString.substring(0,1).toUpperCase() + inputString.substring(1);
+        }
+    }
 
 } // FilesInOut
+
