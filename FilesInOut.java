@@ -11,6 +11,7 @@ import java.lang.Number;
  *
  */
 public class FilesInOut {
+    
 
     public static void main(String[] args) {
         // Replace this with statements to set the file name (input) and file name (output).
