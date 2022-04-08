@@ -14,10 +14,14 @@ import java.util.Scanner;
 public class FilesInOut {
 
     public static void main(String[] args) throws FileNotFoundException {
-        System.out.println("supply filename for input:");
-        Scanner in = new Scanner(System.in); // Creating scanner object called "in"
-        boolean inputSuccess = false;
-        String inputPath = "";
+        
+	    System.out.println("supply the filename :");
+        
+	    Scanner in = new Scanner(System.in); // Creating scanner object called "in"
+        
+	    boolean inputSuccess = false;
+        
+	    String inputPath = " ";
 
         // Testing  the input file exists
         while (inputSuccess == false){ // While  boolean value = false
@@ -42,7 +46,7 @@ public class FilesInOut {
         boolean outputSuccess = false;
         String outputPath = "";
 
-                   System.out.println("File operation succesfull");
+          System.out.println("File operation is succesfull");
 
 
             
@@ -50,8 +54,12 @@ public class FilesInOut {
     
     public String string_To_Date(String date) {
 		StringBuffer dateBuffer = new StringBuffer(date);
-		dateBuffer.insert(2, '/');
-		dateBuffer.insert(5, '/');
+		
+	        dateBuffer.insert(5, '/');
+	    
+	      dateBuffer.insert(2, '/');
+		
+	
 		String result = dateBuffer.toString();
 		return result;
 	}
